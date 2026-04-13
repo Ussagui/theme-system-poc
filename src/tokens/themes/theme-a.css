@@ -1,0 +1,17 @@
+@layer base {
+  [data-theme='theme-a'] {
+    --font-family: system-ui, -apple-system, sans-serif;
+
+    /* cores primitivas */
+    --color-primary:   #4c6ef5;
+    --color-secondary: #e8404f;
+    --color-neutral:   #868e96;
+
+    /* tokens semânticos do botão */
+    --btn-bg:             var(--color-primary);
+    --btn-text:           #ffffff;
+
+    --btn-secondary-bg:   var(--color-secondary);
+    --btn-secondary-text: #ffffff;
+  }
+}

@@ -1,0 +1,12 @@
+@import './Button.theme-b.css';
+
+@layer base {
+  :root {
+    /* tokens semânticos do botão */
+    --btn-bg: var(--color-primary);
+    --btn-text: #ffffff;
+
+    --btn-secondary-bg: var(--color-secondary);
+    --btn-secondary-text: #ffffff;
+  }
+}

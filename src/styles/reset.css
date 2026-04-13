@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
+
+body {
+  background: #f2f2f5;
+  color: #18181b;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+}

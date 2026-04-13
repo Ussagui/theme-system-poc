@@ -1,0 +1,6 @@
+@layer components {
+  [data-theme='theme-b'] {
+    --btn-bg: var(--color-secondary);
+    --btn-secondary-bg: var(--color-primary);
+  }
+}

@@ -1,0 +1,239 @@
+.shell {
+  display: grid;
+  grid-template-columns: 268px 1fr;
+  min-height: 100vh;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  background: #fff;
+  border-right: 1px solid #e4e4e8;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.sidebar-top {
+  flex-shrink: 0;
+  padding: 20px 16px 14px;
+  border-bottom: 1px solid #eeeef2;
+}
+
+.sidebar-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.theme-switcher {
+  display: flex;
+  gap: 6px;
+}
+
+.theme-btn {
+  flex: 1;
+  padding: 7px 12px;
+  border-radius: 7px;
+  border: 1.5px solid #e4e4e8;
+  background: #fff;
+  color: #6b7280;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 180ms ease;
+  text-align: center;
+}
+
+.theme-btn:hover:not(.active) {
+  border-color: #c4c4cc;
+  color: #374151;
+}
+
+.theme-btn.active {
+  background: var(--color-primary, #4c6ef5);
+  border-color: var(--color-primary, #4c6ef5);
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Var list */
+.var-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #e4e4e8 transparent;
+}
+
+.var-group { padding: 8px 0 4px; }
+
+.group-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  padding: 0 16px 5px;
+}
+
+.var-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 16px;
+  transition: background 150ms ease;
+}
+
+.var-row:hover { background: #f7f7f9; }
+
+.var-row.changed { animation: row-flash 0.9s ease forwards; }
+
+@keyframes row-flash {
+  0%   { background: #fef9c3; }
+  100% { background: transparent; }
+}
+
+.swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.08);
+  transition: background 300ms ease;
+}
+
+.swatch--text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f4f6;
+  font-size: 9px;
+  color: #9ca3af;
+}
+
+.var-meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.var-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.override-badge {
+  font-size: 9px;
+  font-family: 'DM Mono', monospace;
+  color: #b45309;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  padding: 1px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.var-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #374151;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 120ms ease;
+  line-height: 1.5;
+}
+
+.var-name:hover { color: #111; }
+
+.var-val {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #9ca3af;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 120ms ease;
+  line-height: 1.5;
+}
+
+.var-val:hover { color: #6b7280; }
+
+.ok { color: #16a34a !important; }
+
+.hint {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  border-top: 1px solid #eeeef2;
+  font-size: 10px;
+  color: #c4c4cc;
+  letter-spacing: 0.01em;
+}
+
+/* ── MAIN ── */
+.main {
+  padding: 56px 64px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #18181b;
+  margin-bottom: 36px;
+}
+
+.demos {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e4e4e8;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 520px;
+}
+
+.demo-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f0f0f3;
+}
+
+.color-code {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  width: 72px;
+  flex-shrink: 0;
+  transition: color 300ms ease;
+}
+
+.demo-row:last-child { border-bottom: none; }
+
+.demo-label {
+  font-size: 12px;
+  color: #9ca3af;
+  width: 96px;
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+}
