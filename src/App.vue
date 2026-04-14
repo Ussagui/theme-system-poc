@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, computed, nextTick, watch } from 'vue'
-import { Button } from './index'
+import { Button, DialogRoot, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose } from './index'
 import { useThemeProvider } from './composables/useTheme'
 
 const { current, setTheme, themes } = useThemeProvider()
@@ -76,10 +76,10 @@ async function copy(text: string, id: string) {
 
 watch(current, async () => { await nextTick(); readVarValues() })
 onMounted(() => {
-  setTheme('theme-a')
+  setTheme('theme-sword')
   nextTick(() => {
     readVarValues()
-    baseValues.value = { ...varValues.value } // capture theme-a as baseline
+    baseValues.value = { ...varValues.value } // capture theme-sword as baseline
   })
 })
 </script>
@@ -196,6 +196,35 @@ onMounted(() => {
           <span class="demo-label">With icon</span>
           <span class="color-code" :style="{ color: varValues['--btn-bg'] }">{{ varValues['--btn-bg'] }}</span>
           <Button><template #icon>★</template> With icon</Button>
+        </div>
+      </div>
+
+      <h1 class="page-title" style="margin-top: 56px;">Composition</h1>
+
+      <div class="demos">
+        <div class="demo-row">
+          <span class="demo-label">Dialog</span>
+          <span class="color-code" style="font-size: 10px; width: 120px;">&lt;DialogTrigger asChild&gt;</span>
+          <DialogRoot>
+            <DialogTrigger :as-child="true">
+              <Button>Open Dialog</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogTitle>Confirm action</DialogTitle>
+              <DialogDescription>
+                reka-ui handles focus trapping, scroll lock, escape key, and
+                aria-modal. Your components, reka-ui's behaviour.
+              </DialogDescription>
+              <div class="dialog-footer">
+                <DialogClose :as-child="true">
+                  <Button>Confirm</Button>
+                </DialogClose>
+                <DialogClose :as-child="true">
+                  <Button intent="secondary">Cancel</Button>
+                </DialogClose>
+              </div>
+            </DialogContent>
+          </DialogRoot>
         </div>
       </div>
     </main>
