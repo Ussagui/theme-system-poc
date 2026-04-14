@@ -4,29 +4,27 @@ import { Primitive } from 'reka-ui'
 import { buttonVariants } from './Button.variants'
 
 interface Props {
-  as?:      string | object
-  intent?:  'primary' | 'secondary'
-  size?:    'sm' | 'md' | 'lg'
+  intent?: 'primary' | 'secondary'
+  size?: 'sm' | 'md' | 'lg'
   rounded?: 'full' | 'md' | 'none'
   disabled?: boolean
-  loading?:  boolean
+  loading?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  as:       'button',
-  intent:   'primary',
-  size:     'md',
-  rounded:  'full',
+  intent: 'primary',
+  size: 'md',
+  rounded: 'full',
   disabled: false,
-  loading:  false,
+  loading: false,
 })
 
 const { base, label, icon } = buttonVariants()
 
 const classes = computed(() =>
   base({
-    intent:  props.intent,
-    size:    props.size,
+    intent: props.intent,
+    size: props.size,
     rounded: props.rounded,
   })
 )
@@ -34,11 +32,7 @@ const classes = computed(() =>
 </script>
 
 <template>
-  <Primitive
-    :as="as"
-    :class="classes"
-    :disabled="disabled || loading"
-  >
+  <Primitive as="button" :class="classes" :disabled="disabled || loading">
     <span v-if="$slots.icon && !loading" :class="icon()">
       <slot name="icon" />
     </span>

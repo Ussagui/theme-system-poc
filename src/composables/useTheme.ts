@@ -2,11 +2,11 @@ import { ref, provide, inject } from 'vue'
 
 const THEME_KEY = Symbol('theme')
 
-const themes = ['theme-a', 'theme-b'] as const
+const themes = ['theme-sword', 'theme-mind'] as const
 type Theme = (typeof themes)[number]
 
 export function useThemeProvider() {
-  const current = ref<Theme>('theme-a')
+  const current = ref<Theme>('theme-sword')
 
   function setTheme(theme: Theme) {
     current.value = theme

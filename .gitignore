@@ -104,3 +104,6 @@ out/
 .yarn/unplugged
 .yarn/install-state.gz
 .pnp.*
+### Project tooling
+.playwright-mcp/
+.superpowers/
