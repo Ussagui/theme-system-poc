@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { DialogClose } from 'reka-ui'
 
-defineProps<{ asChild?: boolean }>()
+withDefaults(defineProps<{ asChild?: boolean }>(), { asChild: false })
 </script>
 
 <template>

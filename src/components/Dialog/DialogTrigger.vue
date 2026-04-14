@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { DialogTrigger } from 'reka-ui'
 
-defineProps<{ asChild?: boolean }>()
+withDefaults(defineProps<{ asChild?: boolean }>(), { asChild: false })
 </script>
 
 <template>
