@@ -35,7 +35,7 @@ const cssVarGroups = [
 ]
 
 const varValues   = ref<Record<string, string>>({})
-const baseValues  = ref<Record<string, string>>({}) // theme-a baseline
+const baseValues  = ref<Record<string, string>>({}) // theme-sword baseline
 const changedVars = ref<Set<string>>(new Set())
 const copied      = ref<string | null>(null)
 
@@ -204,7 +204,7 @@ onMounted(() => {
       <div class="demos">
         <div class="demo-row">
           <span class="demo-label">Dialog</span>
-          <span class="color-code" style="font-size: 10px; width: 120px;">&lt;DialogTrigger asChild&gt;</span>
+          <span style="font-family: 'DM Mono', monospace; font-size: 11px; color: #9ca3af; flex-shrink: 0;">&lt;DialogTrigger asChild&gt;</span>
           <DialogRoot>
             <DialogTrigger :as-child="true">
               <Button>Open Dialog</Button>
