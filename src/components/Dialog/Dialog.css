@@ -1,0 +1,52 @@
+@layer components {
+  .dialog-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    animation: overlay-show 150ms ease;
+  }
+
+  .dialog-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border-radius: var(--radius, 8px);
+    padding: 28px 32px;
+    width: 480px;
+    max-width: calc(100vw - 32px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    animation: content-show 150ms ease;
+  }
+
+  .dialog-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+  }
+
+  .dialog-description {
+    font-size: var(--font-size-md);
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .dialog-footer {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  @keyframes overlay-show {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes content-show {
+    from { opacity: 0; transform: translate(-50%, -48%) scale(0.96); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+}
