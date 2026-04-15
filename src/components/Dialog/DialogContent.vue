@@ -4,8 +4,8 @@ import { DialogPortal, DialogOverlay, DialogContent as RekaDialogContent } from 
 
 <template>
   <DialogPortal>
-    <DialogOverlay class="dialog-overlay" />
-    <RekaDialogContent class="dialog-content">
+    <DialogOverlay class="fixed inset-0 bg-black/50" />
+    <RekaDialogContent class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-[var(--radius,8px)] px-8 py-7 w-[480px] max-w-[calc(100vw-32px)] shadow-[0_8px_32px_rgba(0,0,0,0.18)]">
       <slot />
     </RekaDialogContent>
   </DialogPortal>

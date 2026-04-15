@@ -215,7 +215,7 @@ onMounted(() => {
                 reka-ui handles focus trapping, scroll lock, escape key, and
                 aria-modal. Your components, reka-ui's behaviour.
               </DialogDescription>
-              <div class="dialog-footer">
+              <div class="flex gap-2 justify-end">
                 <DialogClose :as-child="true">
                   <Button>Confirm</Button>
                 </DialogClose>
