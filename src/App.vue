@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, computed, nextTick, watch } from 'vue'
-import { Button, DialogRoot, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose } from './index'
+import { Button, DialogRoot, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose, TooltipProvider, TooltipRoot, TooltipTrigger, TooltipContent } from './index'
 import { useThemeProvider } from './composables/useTheme'
 
 const { current, setTheme, themes } = useThemeProvider()
@@ -85,6 +85,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <TooltipProvider>
   <div class="shell">
 
     <!-- SIDEBAR -->
@@ -226,8 +227,19 @@ onMounted(() => {
             </DialogContent>
           </DialogRoot>
         </div>
+        <div class="demo-row">
+          <span class="demo-label">Tooltip</span>
+          <span style="font-family: 'DM Mono', monospace; font-size: 11px; color: #9ca3af; flex-shrink: 0;">&lt;TooltipTrigger asChild&gt;</span>
+          <TooltipRoot>
+            <TooltipTrigger :as-child="true">
+              <Button>Hover me</Button>
+            </TooltipTrigger>
+            <TooltipContent>Powered by reka-ui</TooltipContent>
+          </TooltipRoot>
+        </div>
       </div>
     </main>
 
   </div>
+  </TooltipProvider>
 </template>
