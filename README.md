@@ -48,6 +48,8 @@ Wrappers are only added when they contribute styling or structure (e.g. `DialogC
 | CSS custom properties | Runtime theming tokens |
 | Vite + vite-plugin-dts | Dev server, library build, type declarations |
 | Vitest | Unit testing |
+| Storybook 10 (`@storybook/vue3-vite`) | Component documentation and visual testing |
+| `@storybook/addon-themes` | Live `data-theme` switching in Storybook toolbar |
 
 ## Running
 
@@ -55,6 +57,24 @@ Wrappers are only added when they contribute styling or structure (e.g. `DialogC
 pnpm install
 pnpm dev
 ```
+
+## Monorepo structure
+
+```
+theme-system-poc/
+  packages/
+    ui/                   ← @phoenix-ui/ui library
+  apps/
+    storybook/            ← @phoenix-ui/storybook Storybook app
+```
+
+## Running Storybook
+
+```bash
+pnpm storybook
+```
+
+Opens at `http://localhost:6006`. The toolbar theme switcher sets `data-theme` on `<html>` — the same mechanism the library uses — so all component stories respond to live theme changes.
 
 ## Building as a library
 
