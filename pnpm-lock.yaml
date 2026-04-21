@@ -6,7 +6,9 @@ settings:
 
 importers:
 
-  .:
+  .: {}
+
+  packages/ui:
     dependencies:
       tailwind-merge:
         specifier: ^3.5.0

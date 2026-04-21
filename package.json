@@ -1,0 +1,11 @@
+{
+  "name": "phoenix-ui",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @phoenix-ui/ui dev",
+    "build": "pnpm --filter @phoenix-ui/ui build",
+    "storybook": "pnpm --filter @phoenix-ui/storybook storybook",
+    "build-storybook": "pnpm --filter @phoenix-ui/storybook build-storybook",
+    "type-check": "pnpm -r type-check"
+  }
+}
