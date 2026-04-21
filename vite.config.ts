@@ -17,6 +17,7 @@ export default defineConfig({
       include: ['env.d.ts', 'src/index.ts', 'src/components/**', 'src/composables/**'],
       exclude: ['src/App.vue', 'src/main.ts'],
       outDir: 'dist',
+      rollupTypes: true,
       tsconfigPath: './tsconfig.app.json',
     }),
   ],
