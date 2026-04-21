@@ -16,8 +16,8 @@ const config: StorybookConfig = {
     config.resolve ??= {}
     config.resolve.alias = {
       ...(config.resolve.alias as Record<string, string>),
-      '@phoenix-ui/ui': fileURLToPath(new URL('../../packages/ui/src/index.ts', import.meta.url)),
-      '@phoenix-ui/ui/style': fileURLToPath(new URL('../../packages/ui/src/style.css', import.meta.url)),
+      '@phoenix-ui/ui': fileURLToPath(new URL('../../../packages/ui/src/index.ts', import.meta.url)),
+      '@phoenix-ui/ui/style': fileURLToPath(new URL('../../../packages/ui/src/style.css', import.meta.url)),
     }
 
     return config
