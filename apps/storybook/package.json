@@ -1,0 +1,21 @@
+{
+  "name": "@phoenix-ui/storybook",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@phoenix-ui/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@storybook/addon-themes": "^10.0.0",
+    "@storybook/vue3-vite": "^10.0.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "reka-ui": "^2.9.0",
+    "storybook": "^10.0.0",
+    "tailwindcss": "^4.2.2",
+    "vue": "^3.5.0"
+  }
+}
