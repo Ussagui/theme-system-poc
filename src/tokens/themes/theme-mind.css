@@ -2,19 +2,12 @@
   [data-theme='theme-mind'] {
     --font-family: Georgia, serif;
 
-    /* cores primitivas */
+    /* Cores primitivas */
     --color-primary: #0ca678;
     --color-secondary: #f76707;
     --color-neutral: #74c0fc;
 
-    /* tokens semânticos do botão */
-    --btn-bg: var(--color-primary);
-    --btn-text: #ffffff;
-
-    --btn-secondary-bg: var(--color-secondary);
-    --btn-secondary-text: #ffffff;
-
-    /* border radius */
+    /* Border radius */
     --radius: 12px;
   }
 }

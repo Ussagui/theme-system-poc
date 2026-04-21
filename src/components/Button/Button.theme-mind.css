@@ -1,4 +1,4 @@
-@layer components {
+@layer base {
   [data-theme='theme-mind'] {
     --btn-bg: var(--color-secondary);
     --btn-secondary-bg: var(--color-primary);

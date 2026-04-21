@@ -1,0 +1,6 @@
+@layer base {
+  :root {
+    --dialog-bg: var(--color-surface-raised);
+    --dialog-shadow: var(--shadow-lg);
+  }
+}

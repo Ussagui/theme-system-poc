@@ -1,0 +1,14 @@
+/*
+  Library CSS entry — imported by src/index.ts so Vite emits dist/style.css.
+  Consumers import this file alongside the JS bundle:
+    import 'theme-system-poc/style'
+
+  Does not include demo-only styles (reset.css, app.css).
+*/
+@import 'tailwindcss';
+@import './tokens/base.css';
+@import './tokens/themes/theme-sword.css';
+@import './tokens/themes/theme-mind.css';
+@import './components/Button/Button.css';
+@import './components/Dialog/Dialog.css';
+@import './components/Tooltip/Tooltip.css';

@@ -2,11 +2,9 @@
 
 @layer base {
   :root {
-    /* tokens semânticos do botão */
     --btn-bg: var(--color-primary);
-    --btn-text: #ffffff;
-
+    --btn-text: var(--color-on-primary);
     --btn-secondary-bg: var(--color-secondary);
-    --btn-secondary-text: #ffffff;
+    --btn-secondary-text: var(--color-on-primary);
   }
 }

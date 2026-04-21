@@ -1,0 +1,6 @@
+@layer base {
+  :root {
+    --tooltip-bg: var(--color-primary);
+    --tooltip-text: var(--color-on-primary);
+  }
+}

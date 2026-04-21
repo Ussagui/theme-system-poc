@@ -1,11 +1,50 @@
+/*
+  @theme sets the default color values (theme-sword is the implicit default).
+  Tailwind v4 compiles these into :root in @layer base and generates utilities:
+  bg-primary, text-primary, bg-surface, text-on-surface-muted, etc.
+
+  Theme files override these by targeting [data-theme] selectors, which have
+  higher selector specificity than :root and therefore win within the same layer.
+*/
+@theme {
+  /* Primitive colors — theme-sword defaults */
+  --color-primary: #4c6ef5;
+  --color-secondary: #e8404f;
+  --color-neutral: #868e96;
+
+  /* Surface */
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+
+  /* Text */
+  --color-on-surface: #18181b;
+  --color-on-surface-muted: #6b7280;
+  --color-on-primary: #ffffff;
+}
+
 @layer base {
   :root {
-    /* tipografia */
+    /* Tipografia */
+    --font-family: system-ui, -apple-system, sans-serif;
     --font-size-sm: 0.875rem;
     --font-size-md: 1rem;
     --font-size-lg: 1.125rem;
 
-    /* border radius */
+    /* Espaçamento */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+
+    /* Border radius */
     --radius: 8px;
+    --radius-sm: 4px;
+
+    /* Sombras */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.18);
   }
 }

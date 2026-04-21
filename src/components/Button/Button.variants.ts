@@ -16,7 +16,6 @@ export const buttonVariants = tv({
     intent: {
       primary: {
         base: [
-          'p-3',
           'bg-[var(--btn-bg)] text-[var(--btn-text)]',
           'hover:brightness-110',
           'active:brightness-90 active:scale-[0.98]',
@@ -25,7 +24,6 @@ export const buttonVariants = tv({
       },
       secondary: {
         base: [
-          'p-3',
           'bg-[var(--btn-secondary-bg)] text-[var(--btn-secondary-text)]',
           'hover:brightness-110',
           'active:brightness-90 active:scale-[0.98]',
