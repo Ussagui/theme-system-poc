@@ -5,7 +5,15 @@ import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
 
 const config: StorybookConfig = {
-  framework: '@storybook/vue3-vite',
+  framework: {
+    name: '@storybook/vue3-vite',
+    options: {
+      docgen: {
+        plugin: 'vue-component-meta',
+        tsconfig: '../../../packages/ui/tsconfig.app.json',
+      },
+    },
+  },
   stories: ['../src/stories/**/*.stories.@(ts|tsx)'],
   addons: [
     '@storybook/addon-docs',
