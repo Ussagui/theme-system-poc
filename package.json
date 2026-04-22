@@ -2,7 +2,7 @@
   "name": "phoenix-ui",
   "private": true,
   "scripts": {
-    "dev": "pnpm --filter @phoenix-ui/ui dev",
+    "dev": "pnpm --filter @phoenix-ui/demo dev",
     "build": "pnpm --filter @phoenix-ui/ui build",
     "demo": "pnpm --filter @phoenix-ui/demo dev",
     "build-demo": "pnpm --filter @phoenix-ui/demo build",

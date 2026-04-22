@@ -1,9 +1,0 @@
-@import 'tailwindcss';
-@import './reset.css';
-@import './app.css';
-@import '../tokens/base.css';
-@import '../tokens/themes/theme-sword.css';
-@import '../tokens/themes/theme-mind.css';
-@import '../components/Button/Button.css';
-@import '../components/Dialog/Dialog.css';
-@import '../components/Tooltip/Tooltip.css';
