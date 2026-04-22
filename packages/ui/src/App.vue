@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, computed, nextTick, watch } from 'vue'
-import { Button, DialogRoot, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose, TooltipProvider, TooltipRoot, TooltipTrigger, TooltipContent } from './index'
+import { PButton as Button, PDialogRoot as DialogRoot, PDialogTrigger as DialogTrigger, PDialogContent as DialogContent, PDialogTitle as DialogTitle, PDialogDescription as DialogDescription, PDialogClose as DialogClose, PTooltipProvider as TooltipProvider, PTooltipRoot as TooltipRoot, PTooltipTrigger as TooltipTrigger, PTooltipContent as TooltipContent } from './index'
 import { useThemeProvider } from './composables/useTheme'
 
 const { current, setTheme, themes } = useThemeProvider()

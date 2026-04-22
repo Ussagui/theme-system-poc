@@ -1,2 +1,2 @@
-export { TooltipProvider, TooltipRoot, TooltipTrigger, TooltipArrow } from 'reka-ui'
-export { default as TooltipContent } from './TooltipContent.vue'
+export { TooltipProvider as PTooltipProvider, TooltipRoot as PTooltipRoot, TooltipTrigger as PTooltipTrigger, TooltipArrow as PTooltipArrow } from 'reka-ui'
+export { default as PTooltipContent } from './TooltipContent.vue'

@@ -2,6 +2,8 @@
 import { watch } from 'vue'
 import { useThemeProvider, type Theme } from '@/composables/useTheme'
 
+defineOptions({ name: 'PThemeProvider' })
+
 const props = withDefaults(
   defineProps<{
     defaultTheme?: Theme

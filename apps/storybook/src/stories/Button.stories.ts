@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
-import { Button } from '@phoenix-ui/ui'
+import { PButton } from '@phoenix-ui/ui'
 
 const meta = {
-  component: Button,
+  component: PButton,
   title: 'Components/Button',
   tags: ['autodocs'],
   argTypes: {
@@ -12,16 +12,16 @@ const meta = {
     disabled: { control: 'boolean' },
     loading: { control: 'boolean' },
   },
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof PButton>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   render: (args) => ({
-    components: { Button },
+    components: { PButton },
     setup() { return { args } },
-    template: `<Button v-bind="args">Click me</Button>`,
+    template: `<p-button v-bind="args">Click me</p-button>`,
   }),
   args: {
     intent: 'primary',
@@ -32,9 +32,9 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   render: (args) => ({
-    components: { Button },
+    components: { PButton },
     setup() { return { args } },
-    template: `<Button v-bind="args">Click me</Button>`,
+    template: `<p-button v-bind="args">Click me</p-button>`,
   }),
   args: {
     intent: 'secondary',
@@ -45,9 +45,9 @@ export const Secondary: Story = {
 
 export const Small: Story = {
   render: (args) => ({
-    components: { Button },
+    components: { PButton },
     setup() { return { args } },
-    template: `<Button v-bind="args">Small</Button>`,
+    template: `<p-button v-bind="args">Small</p-button>`,
   }),
   args: {
     intent: 'primary',
@@ -58,9 +58,9 @@ export const Small: Story = {
 
 export const Large: Story = {
   render: (args) => ({
-    components: { Button },
+    components: { PButton },
     setup() { return { args } },
-    template: `<Button v-bind="args">Large</Button>`,
+    template: `<p-button v-bind="args">Large</p-button>`,
   }),
   args: {
     intent: 'primary',
@@ -72,9 +72,9 @@ export const Large: Story = {
 export const RoundedMd: Story = {
   name: 'Rounded md',
   render: (args) => ({
-    components: { Button },
+    components: { PButton },
     setup() { return { args } },
-    template: `<Button v-bind="args">Rounded</Button>`,
+    template: `<p-button v-bind="args">Rounded</p-button>`,
   }),
   args: {
     intent: 'primary',
@@ -86,9 +86,9 @@ export const RoundedMd: Story = {
 export const RoundedNone: Story = {
   name: 'Rounded none',
   render: (args) => ({
-    components: { Button },
+    components: { PButton },
     setup() { return { args } },
-    template: `<Button v-bind="args">Sharp</Button>`,
+    template: `<p-button v-bind="args">Sharp</p-button>`,
   }),
   args: {
     intent: 'primary',
@@ -99,9 +99,9 @@ export const RoundedNone: Story = {
 
 export const Disabled: Story = {
   render: (args) => ({
-    components: { Button },
+    components: { PButton },
     setup() { return { args } },
-    template: `<Button v-bind="args">Disabled</Button>`,
+    template: `<p-button v-bind="args">Disabled</p-button>`,
   }),
   args: {
     intent: 'primary',
@@ -113,9 +113,9 @@ export const Disabled: Story = {
 
 export const Loading: Story = {
   render: (args) => ({
-    components: { Button },
+    components: { PButton },
     setup() { return { args } },
-    template: `<Button v-bind="args">Saving…</Button>`,
+    template: `<p-button v-bind="args">Saving…</p-button>`,
   }),
   args: {
     intent: 'primary',
@@ -128,13 +128,13 @@ export const Loading: Story = {
 export const WithIcon: Story = {
   name: 'With icon',
   render: (args) => ({
-    components: { Button },
+    components: { PButton },
     setup() { return { args } },
     template: `
-      <Button v-bind="args">
+      <p-button v-bind="args">
         <template #icon>★</template>
         Starred
-      </Button>
+      </p-button>
     `,
   }),
   args: {

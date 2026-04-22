@@ -3,6 +3,8 @@ import { computed } from 'vue'
 import { Primitive } from 'reka-ui'
 import { buttonVariants } from './Button.variants'
 
+defineOptions({ name: 'PButton' })
+
 interface Props {
   intent?: 'primary' | 'secondary'
   size?: 'sm' | 'md' | 'lg'

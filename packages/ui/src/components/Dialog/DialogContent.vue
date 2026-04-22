@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { DialogPortal, DialogOverlay, DialogContent as RekaDialogContent } from 'reka-ui'
+
+defineOptions({ name: 'PDialogContent' })
 </script>
 
 <template>

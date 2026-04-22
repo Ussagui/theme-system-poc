@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import {
-  TooltipProvider,
-  TooltipRoot,
-  TooltipTrigger,
-  TooltipContent,
-  Button,
+  PTooltipProvider,
+  PTooltipRoot,
+  PTooltipTrigger,
+  PTooltipContent,
+  PButton,
 } from '@phoenix-ui/ui'
 
 const meta = {
@@ -17,17 +17,17 @@ type Story = StoryObj<typeof meta>
 
 const makeTooltipStory = (side: 'top' | 'bottom' | 'left' | 'right'): Story => ({
   render: () => ({
-    components: { TooltipProvider, TooltipRoot, TooltipTrigger, TooltipContent, Button },
+    components: { PTooltipProvider, PTooltipRoot, PTooltipTrigger, PTooltipContent, PButton },
     setup() { return { side } },
     template: `
-      <TooltipProvider>
-        <TooltipRoot>
-          <TooltipTrigger as-child>
-            <Button>Hover me</Button>
-          </TooltipTrigger>
-          <TooltipContent :side="side">Tooltip on {{ side }}</TooltipContent>
-        </TooltipRoot>
-      </TooltipProvider>
+      <p-tooltip-provider>
+        <p-tooltip-root>
+          <p-tooltip-trigger as-child>
+            <p-button>Hover me</p-button>
+          </p-tooltip-trigger>
+          <p-tooltip-content :side="side">Tooltip on {{ side }}</p-tooltip-content>
+        </p-tooltip-root>
+      </p-tooltip-provider>
     `,
   }),
 })

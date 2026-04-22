@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { TooltipPortal, TooltipContent } from 'reka-ui'
 
+defineOptions({ name: 'PTooltipContent' })
+
 defineProps<{
   side?: 'top' | 'bottom' | 'left' | 'right'
 }>()

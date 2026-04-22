@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { DialogDescription } from 'reka-ui'
+
+defineOptions({ name: 'PDialogDescription' })
 </script>
 
 <template>

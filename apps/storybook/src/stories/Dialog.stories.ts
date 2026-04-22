@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import {
-  DialogRoot,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-  DialogClose,
-  Button,
+  PDialogRoot,
+  PDialogTrigger,
+  PDialogContent,
+  PDialogTitle,
+  PDialogDescription,
+  PDialogClose,
+  PButton,
 } from '@phoenix-ui/ui'
 
 const meta = {
@@ -19,25 +19,25 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: () => ({
-    components: { DialogRoot, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose, Button },
+    components: { PDialogRoot, PDialogTrigger, PDialogContent, PDialogTitle, PDialogDescription, PDialogClose, PButton },
     template: `
-      <DialogRoot>
-        <DialogTrigger as-child>
-          <Button>Open Dialog</Button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogTitle>Confirm action</DialogTitle>
-          <DialogDescription>This action cannot be undone. Are you sure?</DialogDescription>
+      <p-dialog-root>
+        <p-dialog-trigger as-child>
+          <p-button>Open Dialog</p-button>
+        </p-dialog-trigger>
+        <p-dialog-content>
+          <p-dialog-title>Confirm action</p-dialog-title>
+          <p-dialog-description>This action cannot be undone. Are you sure?</p-dialog-description>
           <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: flex-end;">
-            <DialogClose as-child>
-              <Button intent="secondary" size="sm">Cancel</Button>
-            </DialogClose>
-            <DialogClose as-child>
-              <Button intent="primary" size="sm">Confirm</Button>
-            </DialogClose>
+            <p-dialog-close as-child>
+              <p-button intent="secondary" size="sm">Cancel</p-button>
+            </p-dialog-close>
+            <p-dialog-close as-child>
+              <p-button intent="primary" size="sm">Confirm</p-button>
+            </p-dialog-close>
           </div>
-        </DialogContent>
-      </DialogRoot>
+        </p-dialog-content>
+      </p-dialog-root>
     `,
   }),
 }
@@ -45,25 +45,25 @@ export const Default: Story = {
 export const AsChild: Story = {
   name: 'Trigger as Button (asChild)',
   render: () => ({
-    components: { DialogRoot, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose, Button },
+    components: { PDialogRoot, PDialogTrigger, PDialogContent, PDialogTitle, PDialogDescription, PDialogClose, PButton },
     template: `
-      <DialogRoot>
-        <DialogTrigger :as-child="true">
-          <Button intent="secondary">Open with asChild</Button>
-        </DialogTrigger>
-        <DialogContent>
-          <DialogTitle>asChild pattern</DialogTitle>
-          <DialogDescription>
-            DialogTrigger renders the Button element directly — no wrapper div.
+      <p-dialog-root>
+        <p-dialog-trigger :as-child="true">
+          <p-button intent="secondary">Open with asChild</p-button>
+        </p-dialog-trigger>
+        <p-dialog-content>
+          <p-dialog-title>asChild pattern</p-dialog-title>
+          <p-dialog-description>
+            PDialogTrigger renders the PButton element directly — no wrapper div.
             Inspect the DOM to confirm.
-          </DialogDescription>
+          </p-dialog-description>
           <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
-            <DialogClose as-child>
-              <Button size="sm">Close</Button>
-            </DialogClose>
+            <p-dialog-close as-child>
+              <p-button size="sm">Close</p-button>
+            </p-dialog-close>
           </div>
-        </DialogContent>
-      </DialogRoot>
+        </p-dialog-content>
+      </p-dialog-root>
     `,
   }),
 }

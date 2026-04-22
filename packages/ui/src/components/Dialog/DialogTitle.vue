@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { DialogTitle } from 'reka-ui'
+
+defineOptions({ name: 'PDialogTitle' })
 </script>
 
 <template>
