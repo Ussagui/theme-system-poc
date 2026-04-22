@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { watch } from 'vue'
-import { useThemeProvider, type Theme } from '@/composables/useTheme'
+import { useThemeProvider, type Theme } from '../../composables/useTheme'
 
 defineOptions({ name: 'PThemeProvider' })
 

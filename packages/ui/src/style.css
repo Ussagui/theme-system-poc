@@ -6,6 +6,8 @@
   Does not include demo-only styles (reset.css, app.css).
 */
 @import 'tailwindcss';
+@source "./components/**/*.vue";
+@source "./components/**/*.ts";
 @import './tokens/base.css';
 @import './tokens/themes/theme-sword.css';
 @import './tokens/themes/theme-mind.css';
