@@ -30,12 +30,12 @@ Components are built on [reka-ui](https://reka-ui.com) headless primitives. reka
 The `asChild` pattern lets you render any reka-ui part as your own component:
 
 ```vue
-<DialogTrigger :as-child="true">
-  <Button>Open Dialog</Button>   <!-- Button renders, DialogTrigger behaviour -->
-</DialogTrigger>
+<PDialogTrigger :as-child="true">
+  <PButton>Open Dialog</PButton>   <!-- PButton renders, PDialogTrigger behaviour -->
+</PDialogTrigger>
 ```
 
-Wrappers are only added when they contribute styling or structure (e.g. `DialogContent` bundles Portal + Overlay + Content). Pure pass-throughs (`DialogRoot`, `DialogTrigger`, `DialogClose`) are re-exported directly from reka-ui.
+Wrappers are only added when they contribute styling or structure (e.g. `PDialogContent` bundles Portal + Overlay + Content). Pure pass-throughs (`PDialogRoot`, `PDialogTrigger`, `PDialogClose`) are re-exported directly from reka-ui.
 
 ## Tech stack
 
@@ -47,16 +47,9 @@ Wrappers are only added when they contribute styling or structure (e.g. `DialogC
 | Tailwind CSS v4 | Utility classes + `@theme` token registration |
 | CSS custom properties | Runtime theming tokens |
 | Vite + vite-plugin-dts | Dev server, library build, type declarations |
-| Vitest | Unit testing |
 | Storybook 10 (`@storybook/vue3-vite`) | Component documentation and visual testing |
 | `@storybook/addon-themes` | Live `data-theme` switching in Storybook toolbar |
-
-## Running
-
-```bash
-pnpm install
-pnpm dev
-```
+| rollup-plugin-visualizer | Interactive bundle analysis |
 
 ## Monorepo structure
 
@@ -66,9 +59,26 @@ theme-system-poc/
     ui/                   ← @phoenix-ui/ui library
   apps/
     storybook/            ← @phoenix-ui/storybook Storybook app
+    demo/                 ← @phoenix-ui/demo Vite + Vue 3 consumer app
 ```
 
-## Running Storybook
+## Commands
+
+```bash
+pnpm install              # install all workspace dependencies
+
+pnpm dev                  # start @phoenix-ui/ui in watch mode
+pnpm build                # build @phoenix-ui/ui → packages/ui/dist/
+
+pnpm storybook            # start Storybook at http://localhost:6006
+pnpm build-storybook      # build Storybook
+
+pnpm demo                 # start demo app dev server
+pnpm build-demo           # build demo app
+pnpm analyze-demo         # build demo app + open interactive bundle treemap
+```
+
+## Storybook
 
 ```bash
 pnpm storybook
@@ -76,28 +86,43 @@ pnpm storybook
 
 Opens at `http://localhost:6006`. The toolbar theme switcher sets `data-theme` on `<html>` — the same mechanism the library uses — so all component stories respond to live theme changes.
 
+## Bundle analysis
+
+```bash
+pnpm analyze-demo
+```
+
+Builds the demo app and opens `apps/demo/dist/stats.html` — an interactive treemap showing module sizes with gzip and brotli breakdowns.
+
 ## Building as a library
 
 ```bash
 pnpm build
 ```
 
-Outputs:
-- `dist/index.js` — ES module bundle (Vue and reka-ui are external peer dependencies)
-- `dist/style.css` — all tokens + component styles, processed by Tailwind v4
-- `dist/src/index.d.ts` — full TypeScript declarations
+Outputs to `packages/ui/dist/`:
+- `index.js` — ES module bundle (Vue and reka-ui are external peer dependencies)
+- `style.css` — all tokens + component styles, processed by Tailwind v4
+- `index.d.ts` — full TypeScript declarations (rolled up into a single file)
 
-Consumers import both the JS and the CSS:
+### Consuming the library
+
+Install with workspace or npm:
 
 ```ts
-import { Button, ThemeProvider, useTheme } from 'sebthemesystem'
-import 'sebthemesystem/style'
+// app entry (once):
+import '@phoenix-ui/ui/style'
+
+// per component file — JS only, no extra CSS import needed:
+import { PButton, PThemeProvider } from '@phoenix-ui/ui'
 ```
 
-## Project structure
+CSS strategy: `style.css` ships all tokens and component styles in one file. Import it once at the app entry point; component imports everywhere else are pure JS. This keeps per-file imports clean while keeping the loading model simple — a separate CSS file that browsers download in parallel with JS and cache independently.
+
+## Library structure
 
 ```
-src/
+packages/ui/src/
   tokens/
     base.css              ← @theme defaults (= theme-sword) + spacing, shadows, radius
     themes/
@@ -115,9 +140,8 @@ src/
     ThemeProvider/        ← ThemeProvider component (wraps useThemeProvider)
   composables/
     useTheme.ts           ← provide/inject for active theme; exports Theme type
-  style.css               ← library CSS entry (imported by index.ts for the build)
-  styles/
-    index.css             ← demo CSS entry (includes reset + app styles)
+  style.css               ← library CSS entry (tokens + all component CSS)
+  index.ts                ← library JS entry (all exports)
 ```
 
 ## Token architecture
