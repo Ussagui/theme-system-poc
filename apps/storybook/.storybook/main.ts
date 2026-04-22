@@ -1,3 +1,5 @@
+import { fileURLToPath, URL } from 'node:url'
+import { mergeConfig } from 'vite'
 import type { StorybookConfig } from '@storybook/vue3-vite'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -9,9 +11,26 @@ const config: StorybookConfig = {
     '@storybook/addon-themes',
   ],
   viteFinal(config) {
-    config.plugins ??= []
-    config.plugins.push(tailwindcss())
-    return config
+    return mergeConfig(config, {
+      plugins: [tailwindcss()],
+      resolve: {
+        alias: [
+          // style subpath must come before the main alias to avoid prefix matching
+          {
+            find: '@phoenix-ui/ui/style',
+            replacement: fileURLToPath(new URL('../../../packages/ui/src/style.css', import.meta.url)),
+          },
+          {
+            find: '@phoenix-ui/ui',
+            replacement: fileURLToPath(new URL('../../../packages/ui/src/index.ts', import.meta.url)),
+          },
+        ],
+        dedupe: ['vue', 'reka-ui'],
+      },
+      optimizeDeps: {
+        exclude: ['@phoenix-ui/ui'],
+      },
+    })
   },
 }
 

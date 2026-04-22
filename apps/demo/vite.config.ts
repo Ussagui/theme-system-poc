@@ -1,3 +1,4 @@
+import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
@@ -14,4 +15,21 @@ export default defineConfig({
       brotliSize: true,
     }),
   ],
+  resolve: {
+    alias: [
+      // style subpath must come before the main alias to avoid prefix matching
+      {
+        find: '@phoenix-ui/ui/style',
+        replacement: fileURLToPath(new URL('../../packages/ui/src/style.css', import.meta.url)),
+      },
+      {
+        find: '@phoenix-ui/ui',
+        replacement: fileURLToPath(new URL('../../packages/ui/src/index.ts', import.meta.url)),
+      },
+    ],
+    dedupe: ['vue', 'reka-ui'],
+  },
+  optimizeDeps: {
+    exclude: ['@phoenix-ui/ui'],
+  },
 })
