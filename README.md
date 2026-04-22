@@ -67,22 +67,34 @@ theme-system-poc/
 ```bash
 pnpm install              # install all workspace dependencies
 
-pnpm dev                  # start @phoenix-ui/ui in watch mode
-pnpm build                # build @phoenix-ui/ui → packages/ui/dist/
-
 pnpm storybook            # start Storybook at http://localhost:6006
 pnpm build-storybook      # build Storybook
 
 pnpm demo                 # start demo app dev server
 pnpm build-demo           # build demo app
 pnpm analyze-demo         # build demo app + open interactive bundle treemap
+
+pnpm build                # build @phoenix-ui/ui → packages/ui/dist/
+pnpm type-check           # type-check all packages
 ```
 
-## Storybook
+## Dev flow
+
+Both Storybook and the demo app resolve `@phoenix-ui/ui` directly to `packages/ui/src` via `resolve.alias` in their Vite configs. This means editing any file in the library triggers Vite's native HMR instantly in whichever app is running — no separate library build step needed.
 
 ```bash
-pnpm storybook
+pnpm storybook   # edit components in packages/ui/src → Storybook hot-reloads
+pnpm demo        # edit components in packages/ui/src → demo hot-reloads
 ```
+
+`pnpm build` is only needed to publish the library or produce static Storybook output.
+
+**What makes this work:**
+- `resolve.alias` — bypasses `dist/`, Vite serves raw source files directly
+- `optimizeDeps.exclude` — prevents Vite from pre-bundling the source package at startup
+- `resolve.dedupe: ['vue', 'reka-ui']` — single instance across the monorepo, required for provide/inject to work correctly
+
+## Storybook
 
 Opens at `http://localhost:6006`. The toolbar theme switcher sets `data-theme` on `<html>` — the same mechanism the library uses — so all component stories respond to live theme changes.
 
