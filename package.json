@@ -4,6 +4,8 @@
   "scripts": {
     "dev": "pnpm --filter @phoenix-ui/ui dev",
     "build": "pnpm --filter @phoenix-ui/ui build",
+    "demo": "pnpm --filter @phoenix-ui/demo dev",
+    "build-demo": "pnpm --filter @phoenix-ui/demo build",
     "storybook": "pnpm --filter @phoenix-ui/storybook storybook",
     "build-storybook": "pnpm --filter @phoenix-ui/storybook build-storybook",
     "type-check": "pnpm -r type-check"
