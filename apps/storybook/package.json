@@ -10,6 +10,7 @@
     "@phoenix-ui/ui": "workspace:*"
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^10.3.5",
     "@storybook/addon-themes": "^10.0.0",
     "@storybook/vue3-vite": "^10.0.0",
     "@tailwindcss/vite": "^4.2.2",
