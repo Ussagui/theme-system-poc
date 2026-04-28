@@ -5,13 +5,6 @@ const meta = {
   component: PButton,
   title: 'Components/Button',
   tags: ['autodocs'],
-  argTypes: {
-    intent: { control: 'select', options: ['primary', 'secondary'] },
-    size: { control: 'select', options: ['sm', 'md', 'lg'] },
-    rounded: { control: 'select', options: ['full', 'md', 'none'] },
-    disabled: { control: 'boolean' },
-    loading: { control: 'boolean' },
-  },
 } satisfies Meta<typeof PButton>
 
 export default meta
