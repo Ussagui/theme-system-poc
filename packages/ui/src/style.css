@@ -1,11 +1,16 @@
 /*
   Library CSS entry — imported by src/index.ts so Vite emits dist/style.css.
   Consumers import this file alongside the JS bundle:
-    import 'theme-system-poc/style'
+    import '@phoenix-ui/ui/style'
 
   Does not include demo-only styles (reset.css, app.css).
+
+  Preflight (tailwindcss/preflight) is intentionally excluded. Component
+  libraries must not ship a global CSS reset that overrides the consumer app's
+  own baseline. This is permanent good practice, not a migration shim.
 */
-@import 'tailwindcss';
+@import 'tailwindcss/theme';
+@import 'tailwindcss/utilities';
 @source "./components/**/*.vue";
 @source "./components/**/*.ts";
 @import './tokens/base.css';
